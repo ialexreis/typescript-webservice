@@ -1,36 +1,18 @@
-/**
- * Required External Modules
- */
+import { Server } from "./server/server"
+import { clientsRoutes } from "./routes/client.routes"
+import { usersRouter } from "./routes/user.routes"
 
-import * as dotenv from "dotenv";
-import express from "express";
-import helmet from "helmet";
+const routes = [
+  clientsRoutes,
+  usersRouter
+];
 
-dotenv.config();
+const server = new Server();
 
-/**
- * App Variables
- */
-
-if (!process.env.PORT) {
-  process.exit(1);
-}
-
-const PORT: number = parseInt(process.env.PORT as string, 10);
-
-const app = express();
-
-/**
- *  App Configuration
- */
-
-app.use(helmet());
-app.use(express.json());
-
-/**
- * Server Activation
- */
-
-const server = app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+server.bootstrap(routes).then( server => {
+  console.log("Server is listening on: ", server.application.address())
+} ).catch( error => {
+  console.log("Server Failed to start");
+  console.error(error);
+  process.exit(1)
+} );

@@ -11,7 +11,7 @@ export interface Client extends mongoose.Document{
     address: string,
     city: string,
     zip_code: string
-};
+}
 
 
 const clientSchema = new mongoose.Schema({
