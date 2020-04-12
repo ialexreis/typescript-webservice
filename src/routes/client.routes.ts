@@ -2,7 +2,7 @@ import * as restify from "restify"
 import { ModelRoutes } from "../middlewares/model.routes"
 import { Client } from "../http/models/client.model"
 
-class clientsRoutes extends ModelRoutes<Client>
+class ClientsRoutes extends ModelRoutes<Client>
 {
     constructor(){
         super( Client )
@@ -18,4 +18,4 @@ class clientsRoutes extends ModelRoutes<Client>
     }
 }
 
-export const clientsRoutes = new clientsRoutes();
+export const clientsRouter = new ClientsRoutes();

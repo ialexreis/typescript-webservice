@@ -12,7 +12,7 @@ class UsersRoutes extends ModelRoutes<User> {
     }
 
     applyRoutes(application: restify.Server){
-        
+
         application.get("/users", this.findAll );
         application.post("/users" , this.store );
         application.get("/users/:id", [ this.validateId, this.findById ]);

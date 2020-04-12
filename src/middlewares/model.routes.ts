@@ -26,7 +26,7 @@ export abstract class ModelRoutes<D extends mongoose.Document> extends Router
     };
 
     store = (req, resp, next) => {
-        let model = new this.model(req.body);
+        const model = new this.model(req.body);
         model.save().then( this.render(resp, next) ).catch( next )
     };
 

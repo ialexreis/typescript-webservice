@@ -8,7 +8,7 @@
         "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
         "build": "tsc",
         "prestart": "npm run build",
-        "start": "node ."
+        "start": "node src/"
     },
     "keywords": [],
     "author": "",
@@ -32,7 +32,8 @@
         "bcrypt": "^3.0.6",
         "mongoose": "^4.13.9",
         "restify": "^6.3.4",
-        "restify-errors": "^5.0.0"
+        "restify-errors": "^5.0.0",
+        "tslint": "^6.1.1"
     },
     "devDependencies": {
         "@types/bcrypt": "^1.0.0",

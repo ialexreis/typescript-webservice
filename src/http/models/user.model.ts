@@ -1,6 +1,6 @@
 import * as mongoose from "mongoose"
-import { validateZipCode } from "../common/validators";
-import { hashPassword } from "../middlewares/bcrypt.service";
+import { validateZipCode } from "../../http/validators";
+import { hashPassword } from "../../middlewares/bcrypt.service";
 
 export interface User extends mongoose.Document {
     name: string,
@@ -41,6 +41,7 @@ const userSchema = new mongoose.Schema( {
     }
 } );
 
+// @ts-ignore
 const saveHashed = function ( next ) {
     const user: User = this;
     if ( !user.isModified("password") ) next();

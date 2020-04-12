@@ -26,12 +26,12 @@ const clientSchema = new mongoose.Schema({
         maxlength: 10
     },
     nif: {
-        type: BigInt,
+        type: Number,
         required: true,
         maxlength: 9
     },
     phone: {
-        type: BigInt,
+        type: Number,
         required: true,
         maxlength: 9
     },
